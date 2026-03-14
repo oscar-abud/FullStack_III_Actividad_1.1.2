@@ -13,7 +13,7 @@ const lista = [
 
 app.use(express.json());
 
-app.get("/api/productos", async (req, res) => {
+app.get("/api/productos", (req, res) => {
   try {
     if (lista.length === 0) return res.status(400).json(lista)
 
@@ -23,7 +23,7 @@ app.get("/api/productos", async (req, res) => {
   }
 })
 
-app.post("/api/productos", async (req, res) => {
+app.post("/api/productos", (req, res) => {
   try {
     const { body } = req;
 
