@@ -27,6 +27,10 @@ app.post("/api/productos", async (req, res) => {
   try {
     const { body } = req;
 
+    const productoExiste = lista.find(p => p.nombre.trim().toUpperCase() === body.nombre.trim().toUpperCase())
+
+    if (productoExiste) return res.json({ message: `La ${body.tipo} ${body.nombre} ya existe` })
+
     lista.push({
       nombre: body.nombre,
       tipo: body.tipo
